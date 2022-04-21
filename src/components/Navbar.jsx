@@ -1,5 +1,5 @@
 import { AddBox } from '@mui/icons-material';
-import { AppBar, Avatar, Input, Toolbar, Typography, MenuItem, Button, Fade, Modal, Box } from '@mui/material'
+import { AppBar, Avatar, Input, Toolbar, Typography, MenuItem, Button, Fade, Modal, Box, FormControl, OutlinedInput } from '@mui/material'
 import Menu from '@mui/material/Menu';
 import React, { useState } from 'react'
 
@@ -107,21 +107,29 @@ const Navbar = () => {
 
 
 
-<Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
-      </Modal>
+        <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <Box sx={style}>
+                        <Typography id="modal-modal-title" variant="h6" component="h2" sx={{
+                            marginBottom: "20px"
+                        }}>
+                            Add a Post
+                        </Typography>
+                        <FormControl sx={{ width: '25ch', marginBottom: "12px" }}>
+                            <Input accept="image/*" id="contained-button-file" multiple type="file" />
+                        </FormControl>
+                        <FormControl sx={{ width: '25ch', marginBottom: "8px" }}>
+                            <OutlinedInput placeholder="Please enter description" />
+                        </FormControl>
+                        <Button variant="contained" component="span">
+                            Upload Post
+                        </Button>
+                    </Box>
+                </Modal>
       </>
     )
 }
